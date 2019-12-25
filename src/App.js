@@ -3,8 +3,18 @@ import logo from './logo.svg';
 import './App.css';
 import {Navbar, NavbarBrand} from 'reactstrap'
 import MenuBar from './components/MenuBar'
+import { DISHES } from './shared/dishes';
 
 class App extends Component{
+
+  constructor(props){
+    super(props)
+
+    this.state = {
+      dishes : DISHES
+    }
+  }
+
   render()
   {
     return(
@@ -15,7 +25,8 @@ class App extends Component{
 
           </div>
         </Navbar>
-        <MenuBar/>
+        <MenuBar dishes={this.state.dishes}/>
+        {/* dishes data is sent as props to the child components */}
       </div>
     );
   }
