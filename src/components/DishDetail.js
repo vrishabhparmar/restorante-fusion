@@ -51,7 +51,7 @@ import {Card, CardText, CardImg, CardTitle, CardBody} from 'reactstrap'
                     <CardImg width="100%" src={dish.image} alt={dish.name} />
                     <CardBody>
                         <CardTitle>{dish.name}</CardTitle>
-                        <CardText>{dish.description} {dish.comments.comment}</CardText>
+                        <CardText>{dish.description}</CardText>
                     </CardBody>
                 </Card>
             )
