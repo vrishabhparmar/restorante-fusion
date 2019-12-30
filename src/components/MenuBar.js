@@ -5,7 +5,7 @@ import DishDetail from './DishDetail';
     function RenderMenu({dish , onClick})
     {
         return(
-            <Card key={dish.id} onClick={() => onClick(dish.id)}>
+            <Card key={dish.id} >
                         
             <CardImg width="100%" src={dish.image} alt={dish.name} />
             
