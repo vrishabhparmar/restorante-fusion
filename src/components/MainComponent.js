@@ -10,6 +10,7 @@ import Contact from './ContactComponent.js';
 import {LEADERS} from '../shared/Leaders.js';
 import {COMMENTS} from '../shared/Comments.js'
 import {PROMOTIONS} from '../shared/Promotion.js'
+import AboutUs from './AboutUsComponent.js'
 
 
 
@@ -66,6 +67,9 @@ class Main extends Component{
 
     }
 
+    
+
+
     return(
       <div className="App">
         <Header/>
@@ -74,6 +78,7 @@ class Main extends Component{
           <Route exact path="/menu" component={() => <MenuBar dishes={this.state.dishes} />}/>
           <Route path="/menu/:dishId" component={DishwithId}/>
           <Route exact path="/contactus" component={Contact}/>
+          <Route path="/aboutus" component={() => <AboutUs leaders={this.state.leaders} />}/>
           <Redirect to="/home" />
         </Switch>
         {/* <MenuBar dishes={this.state.dishes} onClick={(dishId) => this.onSelectDish(dishId)}/> */}
