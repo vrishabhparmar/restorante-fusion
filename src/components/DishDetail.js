@@ -3,9 +3,11 @@ import {Col,Card, CardText, CardImg, CardTitle, CardBody,Breadcrumb,BreadcrumbIt
 import {Link} from 'react-router-dom'
 import {LocalForm, Control, Errors} from 'react-redux-form'
 
-
+const required = (val) => val && val.length;
+const maxLength = (len) => (val) => !(val) || (val.length <= len);
+const minLength = (len) => (val) => (val) && (val.length >= len);
     
-    function RenderComments({comment})
+    function RenderComments({comment,addComment, dishId})
     {
 
        
@@ -20,7 +22,11 @@ import {LocalForm, Control, Errors} from 'react-redux-form'
                        
                        </ul>
                        
+                       
+                       
+                       
                    </div>
+                   
                )
            })
 
@@ -28,6 +34,8 @@ import {LocalForm, Control, Errors} from 'react-redux-form'
                <div>
                     <h1>Comments</h1>
                     {com} 
+                    <CommentForm dishId={dishId} addComment={addComment}/>
+                    
                </div>
            )
         } 
@@ -66,9 +74,7 @@ import {LocalForm, Control, Errors} from 'react-redux-form'
         }
 
     }
-
-   class DishDetail extends Component{
-
+    class CommentForm extends Component{
 
         constructor(props){
             super(props)
@@ -87,54 +93,18 @@ import {LocalForm, Control, Errors} from 'react-redux-form'
 
         handleSubmit(values){
            
-            alert('Current State is: ' + JSON.stringify(values))
+           this.props.addComment(this.props.dishId,values.rating ,values.name,values.comments)
             
         }
-       
+
         render(){
-
-            const required = (val) => val && val.length;
-            const maxLength = (len) => (val) => !(val) || (val.length <= len);
-            const minLength = (len) => (val) => (val) && (val.length >= len);
-            
-
-
-            if(this.props.dish == null)
-            {
-               return(
-                   <div>
-    
-                   </div>
-               ) 
-            }
             return(
-                <div class="container">
-                    <div class="row">
-                        <Breadcrumb>
-                            <BreadcrumbItem><Link to="/menu">Menu</Link></BreadcrumbItem>
-                            <BreadcrumbItem active >{this.props.dish.name}</BreadcrumbItem>
-                        </Breadcrumb>
-                        <div className="col-12">
-                            <h4>{this.props.dish.name}</h4>
-                            <hr/>
-                        </div>
-                  
-                </div>
-                <div className="row">
-                    <div className="col-12 col-md-5 m-1">
-                        <RenderDish dish={this.props.dish}/>
-    
-                    </div>
-                    <div className="col-12 col-md-5 m-1">
-                        <RenderComments comment={this.props.comments} />
-                        <div className="row">
-                            <Button onClick={this.toggleModal} outline color="secondary "className="m-2"><span className="fa fa-edit fa-lg"></span> Submit Comment</Button>
-                    
-                        </div>
-                       
-                </div>
                 <div className="row">
                     <div className="col-12">
+                    <div className="row">
+                        <Button onClick={this.toggleModal} outline color="secondary "className="m-2"><span className="fa fa-edit fa-lg"></span> Submit Comment</Button>
+                    
+                    </div>   
                     <Modal toggle={this.toggleModal} isOpen={this.state.isModalOpen}>
                         <ModalHeader>
                             Submit Comments
@@ -206,16 +176,56 @@ import {LocalForm, Control, Errors} from 'react-redux-form'
                     
 
                 </div>
-                
-                    
-                    
-                   
+
+            )
+        }
+
+    } 
+
+
+
+        const DishDetail = props =>  {
+
+            if(props.dish == null)
+            {
+               return(
+                   <div>
     
+                   </div>
+               ) 
+            }
+            return(
+                <div class="container">
+                    <div class="row">
+                        <Breadcrumb>
+                            <BreadcrumbItem><Link to="/menu">Menu</Link></BreadcrumbItem>
+                            <BreadcrumbItem active >{props.dish.name}</BreadcrumbItem>
+                        </Breadcrumb>
+                        <div className="col-12">
+                            <h4>{props.dish.name}</h4>
+                            <hr/>
+                        </div>
+                  
+                </div>
+                <div className="row">
+                    <div className="col-12 col-md-5 m-1">
+                        <RenderDish dish={props.dish}/>
+    
+                    </div>
+                    <div className="col-12 col-md-5 m-1">
+                        <RenderComments comment={props.comments} 
+                        addComment={props.addComment}
+                        dishId={props.dish.id}
+                        />
+                        
+                       
+                </div>
+                
                 </div>
             </div>
             )
 
-        }
+      
        
 
         // const Dish = this.renderDish(dish)
