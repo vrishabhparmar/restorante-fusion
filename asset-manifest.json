@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/restorante-fusion/static/css/main.64c871f9.chunk.css",
+    "main.js": "/restorante-fusion/static/js/main.c148794b.chunk.js",
+    "main.js.map": "/restorante-fusion/static/js/main.c148794b.chunk.js.map",
+    "runtime-main.js": "/restorante-fusion/static/js/runtime-main.9c0aa3d7.js",
+    "runtime-main.js.map": "/restorante-fusion/static/js/runtime-main.9c0aa3d7.js.map",
+    "static/css/2.2016dff6.chunk.css": "/restorante-fusion/static/css/2.2016dff6.chunk.css",
+    "static/js/2.7424b550.chunk.js": "/restorante-fusion/static/js/2.7424b550.chunk.js",
+    "static/js/2.7424b550.chunk.js.map": "/restorante-fusion/static/js/2.7424b550.chunk.js.map",
+    "index.html": "/restorante-fusion/index.html",
+    "precache-manifest.3d59a06d774ecc8ce560899475df4e2f.js": "/restorante-fusion/precache-manifest.3d59a06d774ecc8ce560899475df4e2f.js",
+    "service-worker.js": "/restorante-fusion/service-worker.js",
+    "static/css/2.2016dff6.chunk.css.map": "/restorante-fusion/static/css/2.2016dff6.chunk.css.map",
+    "static/css/main.64c871f9.chunk.css.map": "/restorante-fusion/static/css/main.64c871f9.chunk.css.map",
+    "static/js/2.7424b550.chunk.js.LICENSE.txt": "/restorante-fusion/static/js/2.7424b550.chunk.js.LICENSE.txt",
+    "static/media/font-awesome.css": "/restorante-fusion/static/media/fontawesome-webfont.fee66e71.woff"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.9c0aa3d7.js",
+    "static/css/2.2016dff6.chunk.css",
+    "static/js/2.7424b550.chunk.js",
+    "static/css/main.64c871f9.chunk.css",
+    "static/js/main.c148794b.chunk.js"
+  ]
+}
